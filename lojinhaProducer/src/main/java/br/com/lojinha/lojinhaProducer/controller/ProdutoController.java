@@ -22,7 +22,10 @@ public class ProdutoController {
 
     @PostMapping("/comprar")
     public void comprar(@RequestBody ProdutoRequest produtoRequest) throws JMSException {
+        //Envia a mensagem de PAZ para o tópico
         this.produtoService.enviar(produtoRequest);
+
+        //Simula o envio de mensagens de erro para a fila Log
         this.produtoComErro.enviarErro();
     }
 }

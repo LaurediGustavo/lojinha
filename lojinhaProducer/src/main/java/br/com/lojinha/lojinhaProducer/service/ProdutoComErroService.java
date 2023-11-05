@@ -28,9 +28,12 @@ public class ProdutoComErroService {
         int opcao;
 
         try {
+            //Sorteia um número aleatório
             Random random = new Random();
             int value = random.nextInt(10);
 
+            //Se o número gerado aleatoriamente for igual a 1
+            //será enviada uma mensagem para a fila Log
             if(value == 1) {
                 opcao = random.nextInt(3);
                 getMessage(opcao);
